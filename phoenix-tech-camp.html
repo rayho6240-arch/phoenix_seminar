@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鳳凰科技高中教師研習營 | 高中教師專屬研習營</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --font-size-body: 18px;
+            --font-size-small: 14px;
+            --font-size-h1: 48px;
+            --font-size-h2: 36px;
+            --font-size-h3: 26px;
+            --font-size-h4: 20px;
+        }
+
+        body {
+            font-family: 'Microsoft JhengHei', 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            font-size: var(--font-size-body);
+        }
+
+        p,
+        li {
+            font-size: var(--font-size-body);
+            line-height: 1.8;
+        }
+
+        h1 {
+            font-size: var(--font-size-h1);
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: var(--font-size-h2);
+        }
+
+        h3 {
+            font-size: var(--font-size-h3);
+        }
+
+        h4 {
+            font-size: var(--font-size-h4);
+        }
+
+        /* 頂部跳轉條 */
+        .top-bar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .top-bar a:hover {
+            opacity: 0.8;
+        }
+
+        /* 導航欄 */
+        nav {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background: white;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .nav-toggle span {
+            width: 20px;
+            height: 2px;
+            background: #2d3748;
+            border-radius: 1px;
+            transition: transform 0.3s, opacity 0.3s;
+            position: relative;
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .nav-links a.active {
+            color: #667eea;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* 已移除：舊有分頁式頁面容器樣式（單頁式改用 anchor 導覽） */
+
+        /* 主視覺區 */
+        .hero {
+            min-height: 480px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 20s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 1;
+            padding: 40px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        /* 通用區塊樣式 */
+        section {
+            padding: 24px 16px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #home {
+            max-width: none;
+            padding: 6px 0 24px;
+        }
+
+        #home img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: var(--font-size-h2);
+            margin-bottom: 28px;
+            position: relative;
+            color: #2d3748;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 12px auto;
+            border-radius: 2px;
+        }
+
+        /* 關於研習營頁面 */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .about-text h3 {
+            font-size: var(--font-size-h3);
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        .about-text p {
+            font-size: var(--font-size-body);
+            color: #4a5568;
+            margin-bottom: 15px;
+        }
+
+        .about-image {
+            position: relative;
+            background: #1a202c;
+            border-radius: 20px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.45) 100%);
+        }
+
+        .about-image .image-caption {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 0 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .about-image .fallback-text {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .slider-controls {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 2;
+        }
+
+        .slider-btn {
+            border: 1px solid rgba(255,255,255,0.6);
+            background: rgba(255,255,255,0.9);
+            color: #2d3748;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .slider-btn:hover {
+            background: #ffffff;
+            border-color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .team-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        /* 課程特色頁面 */
+        .course-section {
+            margin-bottom: 32px;
+        }
+
+        .course-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 16px;
+            margin-bottom: 18px;
+        }
+
+        .course-header h3 {
+            font-size: var(--font-size-h3);
+            margin-bottom: 15px;
+        }
+
+        .course-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .detail-card {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .detail-card h4 {
+            font-size: var(--font-size-h4);
+            margin-bottom: 15px;
+            color: #2d3748;
+        }
+
+        .detail-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .detail-card li {
+            padding: 8px 0;
+            color: #4a5568;
+            font-size: var(--font-size-body);
+        }
+
+        .detail-card li::before {
+            content: '✓ ';
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* 活動資訊頁面 */
+        .schedule-timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .timeline-date {
+            text-align: right;
+            padding-right: 18px;
+        }
+
+        .timeline-date h3 {
+            font-size: 24px;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .home-info {
+            margin: 16px auto 0;
+            max-width: 1200px;
+            padding: 0 16px;
+        }
+
+        .home-info .info-card {
+            background: white;
+            color: #2d3748;
+            text-align: left;
+            border: 1px solid #e2e8f0;
+            padding: 22px;
+        }
+
+        .home-info .info-card p {
+            color: #4a5568;
+        }
+
+        .compact-info-card {
+            display: grid;
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        .compact-info-details {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .compact-info-card .info-detail h4 {
+            font-size: var(--font-size-h4);
+            margin-bottom: 4px;
+            color: #2d3748;
+        }
+
+        .compact-info-card .info-detail p {
+            margin-bottom: 4px;
+        }
+
+        .home-info-visual {
+            display: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.18);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 280px;
+            align-self: center;
+            justify-self: center;
+            width: 100%;
+        }
+
+        @media (min-width: 1024px) {
+            .compact-info-card {
+                grid-template-columns: minmax(0, 1fr) 360px;
+            }
+
+            .home-info-visual {
+                display: block;
+                min-height: 320px;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .compact-info-card {
+                grid-template-columns: minmax(0, 1fr) 420px;
+            }
+
+            .home-info-visual {
+                min-height: 360px;
+            }
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .schedule-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: stretch;
+            margin-top: 18px;
+        }
+
+        .schedule-card {
+            background: #ffffff;
+            padding: 22px;
+            border-radius: 14px;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+        }
+
+        .schedule-card h3 {
+            font-size: var(--font-size-h3);
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+
+        .schedule-card p {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: var(--font-size-body);
+        }
+
+        .map-container {
+            margin-top: 10px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
+        }
+
+        .map-link {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 14px;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .map-link:hover {
+            text-decoration: underline;
+        }
+
+        .schedule-visual {
+            width: 100%;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 20px 45px rgba(102, 126, 234, 0.25);
+        }
+
+        .schedule-visual img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+
+        .form-heading {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2d3748;
+            font-size: var(--font-size-h3);
+        }
+
+        .text-secondary {
+            color: #4a5568;
+        }
+
+        .text-muted {
+            color: #718096;
+        }
+
+        .text-small {
+            font-size: var(--font-size-small);
+            line-height: 1.7;
+        }
+
+        .logo-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .hero-title-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .home-visual-main {
+            background-image: url('mainPage.JPG');
+        }
+
+        .about-row-reverse {
+            flex-direction: row-reverse;
+        }
+
+        .section-title-spaced {
+            margin-top: 80px;
+        }
+
+        .text-accent-strong {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .text-body-muted {
+            margin-top: 15px;
+            color: #4a5568;
+        }
+
+        .map-frame {
+            border: 0;
+            width: 100%;
+            height: 350px;
+        }
+
+        .section-intro {
+            max-width: 1000px;
+            margin: 20px auto 50px;
+            text-align: left;
+            color: #4a5568;
+            padding: 0 10px;
+        }
+
+        .reg-note {
+            text-align: center;
+            color: #4a5568;
+            margin-bottom: 20px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .footer-lead {
+            color: #cbd5e0;
+            margin-top: 15px;
+        }
+
+        .footer-contact-item {
+            color: #cbd5e0;
+        }
+
+        .footer-note {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 12px;
+            text-align: center;
+            margin-bottom: 18px;
+            font-size: var(--font-size-body);
+            color: #cbd5e0;
+        }
+
+        .footer-note-item {
+            white-space: nowrap;
+        }
+
+        .footer-note-sep {
+            color: #a0aec0;
+        }
+
+        .faq-placeholder {
+            margin-top: 50px;
+            background: #f7fafc;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .info-card:hover {
+            transform: scale(1.05);
+        }
+
+        .info-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        /* 報名頁面 */
+        .registration-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px 26px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+        }
+
+        .price-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .price-card {
+            background: white;
+            padding: 22px;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-card.featured {
+            transform: scale(1.03);
+            border: 3px solid #667eea;
+        }
+
+        .price-card:hover {
+            transform: translateY(-6px) scale(1.01);
+        }
+
+        .badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 48px;
+            font-weight: bold;
+            color: #667eea;
+            margin: 20px 0;
+        }
+
+        .registration-form {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        /* 聯絡頁面 */
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .contact-info {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            padding: 25px;
+            background: #f7fafc;
+            border-radius: 15px;
+            transition: all 0.3s;
+            text-align: left;
+            width: 100%;
+        }
+
+        .contact-item > div:not(.contact-icon) {
+            flex: 0 1 auto;
+        }
+
+        .contact-icon {
+            order: 0;
+            margin-right: 6px;
+        }
+
+        .contact-item h4 {
+            font-size: var(--font-size-h4);
+            margin-bottom: 8px;
+            color: #2d3748;
+        }
+
+        .contact-item:hover {
+            background: #edf2f7;
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 32px;
+            color: #667eea;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .contact-form-wrapper {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            align-items: center;
+        }
+
+        /* 頁尾 */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 60px 40px 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            padding: 8px 0;
+        }
+
+        .footer-section a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #4a5568;
+            color: #cbd5e0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #4a5568;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #667eea;
+            transform: translateY(-3px);
+        }
+
+        /* visitor badge in footer */
+        .visitor-badge {
+            text-align: center;
+            margin-top: 12px;
+        }
+
+        .visitor-badge img {
+            display: inline-block;
+            width: 200px;
+            height: auto;
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .nav-container {
+                position: relative;
+                gap: 12px;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: calc(100% + 10px);
+                right: 16px;
+                width: min(85vw, 260px);
+                background: rgba(255, 255, 255, 0.98);
+                border: 1px solid #e2e8f0;
+                border-radius: 12px;
+                padding: 16px;
+                box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+                gap: 12px;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links li {
+                text-align: left;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .about-content,
+            .contact-container,
+            .timeline-item,
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .timeline-date {
+                text-align: left;
+                padding-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 頂部跳轉條 -->
+    <!--
+    <div class="top-bar">
+        <span>?? 聯絡電話：06-2757575 ext.62301</span>
+        <span>?? 承辦人：蕭小姐</span>
+        <span>?? Email：z11108176@ncku.edu.tw</span>
+        <a href="#registration">?? 立即報名</a>
+    </div>
+    -->
+
+    <!-- 導航欄 -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><a href="#home" class="logo-link">🔥 鳳凰教師研習營</a></div>
+            <button class="nav-toggle" aria-label="切換選單" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">首頁</a></li>
+                <li><a href="#about" class="nav-link">關於研習營</a></li>
+                <li><a href="#schedule" class="nav-link">活動資訊</a></li>
+                <li><a href="#courses" class="nav-link">課程介紹</a></li>
+                <li><a href="#registration" class="nav-link">報名專區</a></li>
+                <li><a href="#links" class="nav-link">相關連結</a></li>
+                <li><a href="#contact" class="nav-link">聯絡我們</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 首頁 -->
+    <section id="home">
+                <img src="Title.png" alt="鳳凰科技研習營" class="hero-title-img">
+                <div class="info-grid home-info">
+                    <div class="info-card compact-info-card">
+                        <div class="compact-info-details">
+                            <div class="info-detail">
+                                <h4>活動時間</h4>
+                                <p>115 年 1 月 28 日（週三）- 1 月 29 日（週四）</p>
+                                <p class="text-small">Day 1 上午 10:20 報到；Day 2 下午 13:30 賦歸</p>
+                            </div>
+                            <div class="info-detail">
+                                <h4>活動地點</h4>
+                                <p>國立成功大學電機系館、啟端館 openlab</p>
+                                <p class="text-small">台南市東區大學路 1 號，可自駕或搭乘計程車前往</p>
+                            </div>
+                            <div class="info-detail">
+                                <h4>研習營費用</h4>
+                                <p>全程免費，採報名制</p>
+                                <p class="text-small">含課程教材、午餐、晚宴與住宿，名額有限敬請把握</p>
+                            </div>
+                        </div>
+                        <div class="home-info-visual home-visual-main"></div>
+                    </div>
+                </div>
+    </section>
+
+    <!-- 關於研習營頁面 -->
+    <section id="about">
+            <h2 class="section-title">關於研習營</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>為高中教師打造的電資沉浸體驗</h3>
+                    <p>Phoenix Tech Camp 以「認識成大電資、帶走教學靈感、連結資源網絡」為核心，兩天行程串聯系所簡報、實驗室導覽與城區生活體驗，讓教師一次掌握最新趨勢。</p>
+                    <p>透過跨單位安排，參與教師不只了解課程設計與招生重點，也能實際動手完成藍芽音響作品，帶回可落地的教案與指導素材。</p>
+                    
+                    <p><strong>三大亮點：體驗成大 × 精煉課程 × 建立夥伴關係</strong></p>
+                </div>
+                <div class="about-image about-slider" data-directory="pic/A" data-interval="3000">
+                    <div class="image-caption">Day1：系所簡報、科技講座與實作課程亮點</div>
+                    <div class="fallback-text">Day1：系所簡報、科技講座與實作課程亮點</div>
+                </div>
+            </div>
+
+            <div class="about-content about-row-reverse">
+                <div class="about-text">
+                    <h3>參與研習營你將獲得</h3>
+                    <ul>
+                        <li>掌握成大電資院系的招生方向與師資資源，回校即可回應學生升學提問。</li>
+                        <li>獲得可立即移植的「手作藍芽音響」課程流程與跨域整合案例。</li>
+                        <li>觀摩大學如何整合課程、生活與行政支援，作為規畫校內研習營的參考。</li>
+                        <li>與成大師長與各校教師面對面交流，建立長期合作與參訪管道。</li>
+                    </ul>
+                </div>
+                <div class="about-image about-slider" data-directory="pic/B" data-interval="3000">
+                    <div class="image-caption">Day2：招生講座、實驗室導覽與教師座談</div>
+                    <div class="fallback-text">Day2：招生講座、實驗室導覽與教師座談</div>
+
+                </div>
+            </div>
+            <!--
+            <h2 class="section-title section-title-spaced">講師與陪伴團隊</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">院</div>
+                    <h3>電資學院領導群</h3>
+                    <p class="text-accent-strong">趨勢解析與資源分享</p>
+                    <p class="text-body-muted">由院長與系主任親自介紹成大電機、資訊發展脈動與教師資源。</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">創</div>
+                    <h3>創客實作講師</h3>
+                    <p class="text-accent-strong">手作藍芽音響主講</p>
+                    <p class="text-body-muted">啟端館 openlab 導師帶領雷射切割與數位電路，示範教案拆解。</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">招</div>
+                    <h3>招生與教務夥伴</h3>
+                    <p class="text-accent-strong">升學策略與導覽</p>
+                    <p class="text-body-muted">提供招生資訊、實驗室導覽與教師座談，協助需求媒合。</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">導</div>
+                    <h3>研習營陪伴導師</h3>
+                    <p class="text-accent-strong">生活引導與資源對接</p>
+                    <p class="text-body-muted">全程協助報到、交通與住宿，確保每位教師都能安心交流。</p>
+                </div>
+            </div>
+        -->
+    </section>
+
+        <!-- 活動資訊頁面 -->
+    <section id="schedule">
+            <h2 class="section-title">活動資訊</h2>
+            <div class="schedule-grid">
+                <div class="schedule-visual">
+                    <img src="schedule.png" alt="活動日程表">
+                </div>
+                <div class="schedule-card">
+                    <h3>活動地點與交通</h3>
+                    <p>主要課程於「國立成功大學電機系館」與啟端館 openlab 舉行，地址：台南市東區大學路 1 號。</p>
+                    <div class="map-container">
+                        <iframe
+                            title="國立成功大學電機系館地圖"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1544.1954413171923!2d120.22150492224054!3d22.996718360389718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e7694a879f56b%3A0x5cd808e8814beed1!2z5ZyL56uL5oiQ5Yqf5aSn5a246Zu75qmf5bel56iL5a2457O7!5e0!3m2!1szh-TW!2stw!4v1763618877133!5m2!1szh-TW!2stw"
+                            class="map-frame"
+                            loading="lazy"
+                            allowfullscreen=""
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                        <a href="https://maps.google.com/?q=國立成功大學電機系館" target="_blank" rel="noopener" class="map-link">在新視窗開啟 Google 地圖</a>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- 課程特色亮點 -->
+    <section id="courses">
+            <h2 class="section-title">高中教師研習營課程</h2>
+            <p class="section-intro">
+                鳳凰科技教師研習營兩天一夜的課程把校務簡報、實作課程與生活體驗整合，協助高中教師快速掌握成大電資領域的脈動，
+                並帶回可落地的教學靈感與跨校合作資源。
+            </p>
+
+            <div class="course-section">
+                <div class="course-header">
+                    <h3>壹、掌握電資趨勢</h3>
+                    <p>透過電資學院領導與招生團隊的說明，濃縮呈現成大電機、資訊系的研究方向與升學資源，協助教師回校後做引導。</p>
+                </div>
+                <div class="course-details">
+                    <div class="detail-card">
+                        <h4>對應行程</h4>
+                        <ul>
+                            <li>電資學院系所介紹</li>
+                            <li>招生講座與實驗室導覽</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h4>教師收穫</h4>
+                        <ul>
+                            <li>掌握成大電機、資訊的最新研究重點與資源布局</li>
+                            <li>回校即可協助學生規畫跨系所學習與申請策略</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-section">
+                <div class="course-header">
+                    <h3>貳、更新教學靈感</h3>
+                    <p>以「手作藍芽音響」為主軸，示範如何把雷射切割、數位電路與創客精神融入課堂，並穿插科技講座啟發跨域教案。</p>
+                </div>
+                <div class="course-details">
+                    <div class="detail-card">
+                        <h4>對應行程</h4>
+                        <ul>
+                            <li>手作藍芽音響課程</li>
+                            <li>科技講座</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h4>教師收穫</h4>
+                        <ul>
+                            <li>獲得可直接複製的實作教案與課堂流程</li>
+                            <li>練習把 AI、創客工具與動手做結合為跨域課程</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-section">
+                <div class="course-header">
+                    <h3>參、拓展教育社群</h3>
+                    <p>多段交流與休息時段，刻意設計成教師交流與資源對接場域，建立長期互助的教育夥伴網絡。</p>
+                </div>
+                <div class="course-details">
+                    <div class="detail-card">
+                        <h4>對應行程</h4>
+                        <ul>
+                            <li>午餐交流與晚宴</li>
+                            <li>Break／Coffee Break／賦歸前座談</li>
+                            <li>結束前的教師交流與心得分享</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h4>教師收穫</h4>
+                        <ul>
+                            <li>與成大師長及各校教師建立持續合作的管道</li>
+                            <li>共創招生宣講與課程連結素材，擴大影響力</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+
+
+    <!-- 報名專區 -->
+    <section id="registration">
+        <div>
+            <h2 class="section-title">報名專區（教師）</h2>
+            
+            <div class="registration-form">
+                <h3 class="form-heading">教師線上報名表（Google 表單）</h3>
+                <p class="reg-note">請使用 Google 帳號登入後填寫表單，以確保資料傳送與錄取通知順利。</p>
+                <p class="text-center">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScOPOP3DmC-EX7xYMtH_1wx1zb8ji2UYvHgjLaqbGkGLvcakw/viewform" target="_blank" class="cta-button">開啟 Google 報名表單</a>
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 相關連結 -->
+    <section id="links">
+        <div>
+            <h2 class="section-title">相關連結</h2>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div>
+                            <h4>成大電機官網</h4>
+                            <p class="text-secondary">
+                                <a href="https://www.ee.ncku.edu.tw/" target="_blank" rel="noopener noreferrer">https://www.ee.ncku.edu.tw/</a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🤝</div>
+                        <div>
+                            <h4>成大電機系友會官網</h4>
+                            <p class="text-secondary">
+                                <a href="https://eealum.ee.ncku.edu.tw/%E9%A6%96%E9%A0%81" target="_blank" rel="noopener noreferrer">https://eealum.ee.ncku.edu.tw/首頁</a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 課程特色亮點 -->
+        <!-- 聯絡我們頁面 -->
+    <section id="contact">
+        <div>
+            <h2 class="section-title">聯絡我們</h2>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+
+                    <div class="contact-item">
+                        <div class="contact-icon">👤</div>
+                        <div>
+                            <h4>承辦人</h4>
+                            <p class="text-secondary"><strong>蕭小姐</strong></p>
+                        </div>
+                    </div>
+
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4>聯絡電話</h4>
+                            <p class="text-secondary"><strong>06-2757575 ext.62301</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h4>電子郵件</h4>
+                            <p class="text-secondary"><strong>z11108176@ncku.edu.tw</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>辦公室地址</h4>
+                            <p class="text-secondary"><strong>國立成功大學電機系館</strong></p>
+                            <p class="text-muted text-small">台南市東區大學路1號（成大電機系館）</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                
+            <!--
+            <div class="faq-placeholder">
+                <h3 class="form-heading">常見問題</h3>
+            </div>
+                -->
+        </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <script id="folderImagesData" type="application/json">{"pic/A":["1079105.jpg","3L3A5144.JPG","3L3A5145.JPG","3L3A5153.JPG","3L3A5167.JPG"],"pic/B":["20250203_105812.JPG","IMG_1813.jpg","IMG_1816.JPG","IMG_5877.jpg","IMG_5879.jpg","IMG_5880.jpg","IMG_5881.jpg","IMG_5886.jpg","IMG_5894.jpg","IMG_5902.jpg"]}</script>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🔥 鳳凰科技研習營</h3>
+                <p class="footer-lead">點燃科技夢想，展翅高飛</p>
+            </div>
+            <div class="footer-section">
+                <h3>快速連結</h3>
+                <ul>
+                    <li><a href="#about">關於我們</a></li>
+                    <li><a href="#courses">課程介紹</a></li>
+                    <li><a href="#schedule">活動資訊</a></li>
+                    <li><a href="#registration">立即報名</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>聯絡資訊</h3>
+                <ul>
+                    <li class="footer-contact-item">👤 承辦人：蕭小姐</li>
+                    <li class="footer-contact-item">📞 06-2757575 ext.62301</li>
+                    <li class="footer-contact-item">✉️ z11108176@ncku.edu.tw</li>
+                    <li class="footer-contact-item">📍 國立成功大學電機系館</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-note">
+                <span class="footer-note-item">主辦單位：國立成功大學電機工程學系</span>
+                <span class="footer-note-sep">|</span>
+                <span class="footer-note-item">協辦單位：財團法人成電文教基金會</span>
+                <span class="footer-note-sep">|</span>
+                <span class="footer-note-item">活動時間：1/28(Wed.) - 1/29(Thu.)</span>
+            </div>
+            <div class="visitor-badge" aria-hidden="false">
+                <img src="https://api.visitorbadge.io/api/visitors?path=phoenix-tech-camp&label=History%20Visitors&countColor=%23263759" alt="History Visitors" />
+                <small style="display:block; color:#cbd5e0; opacity:0.85; margin-top:6px;">網站瀏覽次數 (歷史)</small>
+            </div>
+            <p>&copy; 2026 鳳凰科技研習營 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 以單頁式 (anchor) 處理頁面導航；使用 IntersectionObserver 更新導覽項目狀態
+
+        // 報名表單提交（如果仍有舊表單存在則保護性綁定）
+        const regFormEl = document.getElementById('regForm');
+        if (regFormEl) {
+            regFormEl.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('感謝您的報名！我們會盡快與您聯繫確認報名資訊。');
+                this.reset();
+            });
+        }
+
+        // 聯絡表單提交
+        const contactFormEl = document.getElementById('contactForm');
+        if (contactFormEl) {
+            contactFormEl.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('�P�±z���T���I�ڭ̷|�b24�p�ɤ��^�бz�C');
+                this.reset();
+            });
+        }
+
+
+        // 平滑滾動效果（用於頁面內部連結）
+        function quickSmoothScrollTo(target, customOffset) {
+            const nav = document.querySelector('nav');
+            const offset = typeof customOffset === 'number' ? customOffset : (nav ? nav.getBoundingClientRect().height + 10 : 0);
+            const startY = window.pageYOffset;
+            const targetY = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            const distance = targetY - startY;
+            const duration = 250;
+            let startTime = null;
+
+            const easeInOut = t => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min((timestamp - startTime) / duration, 1);
+                const eased = easeInOut(progress);
+                window.scrollTo(0, startY + distance * eased);
+                if (progress < 1) requestAnimationFrame(step);
+            }
+
+            requestAnimationFrame(step);
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.length > 1) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        if (target.id === 'home') {
+                            quickSmoothScrollTo(target, 0);
+                        } else {
+                            quickSmoothScrollTo(target);
+                        }
+                    }
+                }
+            });
+        });
+
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinksList = document.querySelector('.nav-links');
+
+        if (navToggle && navLinksList) {
+            const closeMobileMenu = () => {
+                navLinksList.classList.remove('open');
+                navToggle.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            };
+
+            navToggle.addEventListener('click', () => {
+                const isOpen = navLinksList.classList.toggle('open');
+                navToggle.classList.toggle('active', isOpen);
+                navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+
+            navLinksList.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        closeMobileMenu();
+                    }
+                });
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    closeMobileMenu();
+                }
+            });
+        }
+
+        const SUPPORTED_IMG_REGEX = /\.(png|jpe?g|gif|webp)$/i;
+        const folderImagesDataEl = document.getElementById('folderImagesData');
+        let folderImagesCache = {};
+        if (folderImagesDataEl) {
+            try {
+                folderImagesCache = JSON.parse(folderImagesDataEl.textContent || '{}');
+            } catch (error) {
+                folderImagesCache = {};
+            }
+        }
+
+        function initializeFolderSlides() {
+            const sliders = document.querySelectorAll('.about-slider[data-directory]');
+            sliders.forEach(slider => setupFolderSlider(slider));
+        }
+
+        function setupFolderSlider(slider) {
+            const dir = slider.dataset.directory;
+            if (!dir) return;
+            const interval = parseInt(slider.dataset.interval, 10) || 5000;
+            const normalizedDir = dir.replace(/\/$/, '');
+            const localList = folderImagesCache[normalizedDir];
+            if (Array.isArray(localList) && localList.length) {
+                const images = localList
+                    .filter(file => SUPPORTED_IMG_REGEX.test(file))
+                    .map(file => `${normalizedDir}/${file}`);
+                if (images.length) {
+                    startFolderSlider(slider, images, interval);
+                    return;
+                }
+            }
+            fetch(`${normalizedDir}/images.json?cache=${Date.now()}`)
+                .then(res => res.ok ? res.json() : [])
+                .then(files => files
+                    .filter(file => SUPPORTED_IMG_REGEX.test(file))
+                    .map(file => `${normalizedDir}/${file}`))
+                .then(images => {
+                    if (!images.length) {
+                        slider.classList.add('slider-empty');
+                        return;
+                    }
+                    startFolderSlider(slider, images, interval);
+                })
+                .catch(() => {
+                    slider.classList.add('slider-empty');
+                });
+        }
+
+        function startFolderSlider(slider, images, interval) {
+            const fallback = slider.querySelector('.fallback-text');
+            if (fallback) fallback.style.display = 'none';
+            let current = 0;
+            let timer = null;
+
+            const setBackground = index => {
+                const img = new Image();
+                img.onload = () => {
+                    slider.style.backgroundImage = `url('${images[index]}')`;
+                };
+                img.src = images[index];
+            };
+
+            const goTo = direction => {
+                if (!images.length) return;
+                current = (current + direction + images.length) % images.length;
+                setBackground(current);
+            };
+
+            const startAutoPlay = () => {
+                if (images.length > 1) {
+                    timer = setInterval(() => {
+                        goTo(1);
+                    }, interval);
+                }
+            };
+
+            const restartAutoPlay = () => {
+                if (timer) clearInterval(timer);
+                startAutoPlay();
+            };
+
+            const prevBtn = slider.querySelector('.slider-prev');
+            const nextBtn = slider.querySelector('.slider-next');
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    if (images.length < 2) return;
+                    goTo(-1);
+                    restartAutoPlay();
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    if (images.length < 2) return;
+                    goTo(1);
+                    restartAutoPlay();
+                });
+            }
+
+            setBackground(current);
+            if (images.length > 1) {
+                startAutoPlay();
+            }
+        }
+
+        initializeFolderSlides();
+
+        // 更新導航列 active 狀態（根據滾動位置選擇最接近頂端的 section）
+        const sectionsForNav = Array.from(document.querySelectorAll('section[id]'));
+        const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+
+        let ticking = false;
+        function updateActiveNav() {
+            // 計算參考點（考慮固定導覽列高度）
+            const nav = document.querySelector('nav');
+            const offset = nav ? nav.getBoundingClientRect().height + 10 : 80;
+
+            let closest = null;
+            let closestDist = Infinity;
+            sectionsForNav.forEach(sec => {
+                const rect = sec.getBoundingClientRect();
+                const dist = Math.abs(rect.top - offset);
+                if (dist < closestDist) {
+                    closestDist = dist;
+                    closest = sec;
+                }
+            });
+
+            if (closest) {
+                const id = closest.id;
+                navLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href === '#' + id) link.classList.add('active'); else link.classList.remove('active');
+                });
+            }
+            ticking = false;
+        }
+
+        function onScroll() {
+            if (!ticking) {
+                window.requestAnimationFrame(updateActiveNav);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        // 也在載入完成時執行一次
+        window.addEventListener('load', updateActiveNav);
+
+        // 滾動動畫
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // 為各種卡片元素添加動畫
+        document.querySelectorAll('.info-card, .team-card, .detail-card, .price-card, .contact-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+
+
