@@ -755,6 +755,71 @@
             margin-bottom: 12px;
         }
 
+        /* 公佈欄樣式 */
+        .announcement-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .announcement-list {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 16px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 20px;
+        }
+
+        .announcement-list h3 {
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+
+        .announcement-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .announcement-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .announcement-list li:last-child {
+            border-bottom: none;
+        }
+
+        .announcement-list a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .announcement-list a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .announcement-item {
+            background: #f7fafc;
+            padding: 30px;
+            border-radius: 16px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 20px;
+        }
+
+        .announcement-item h3 {
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+
+        .announcement-item p {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
         /* 報名頁面 */
         .registration-section {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -1106,6 +1171,7 @@
                 <li><a href="#schedule" class="nav-link">活動資訊</a></li>
                 <li><a href="#courses" class="nav-link">課程介紹</a></li>
                 <li><a href="#registration" class="nav-link">報名專區</a></li>
+                <li><a href="#announcement" class="nav-link">公佈欄</a></li>
                 <li><a href="#links" class="nav-link">相關連結</a></li>
                 <li><a href="#contact" class="nav-link">聯絡我們</a></li>
             </ul>
@@ -1307,7 +1373,13 @@
             </div>
     </section>
 
-
+    <!-- 活動影片 -->
+    <section id="video">
+        <h2 class="section-title">活動影片</h2>
+        <div style="text-align: center; margin: 20px 0;">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/hucy34TVka4?si=d6d8MPSCXV9wyZFQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </section>
 
     <!-- 報名專區 -->
     <section id="registration">
@@ -1322,6 +1394,36 @@
                 </p>
             </div>
 
+        </div>
+    </section>
+
+    <!-- 公佈欄 -->
+    <section id="announcement">
+        <h2 class="section-title">公佈欄</h2>
+        <div class="announcement-content">
+            <div class="announcement-list">
+                <h3>最新公告</h3>
+                <ul>
+                    <li><a href="#announcement-1">入選人員名單公告</a></li>
+                    <li><a href="#announcement-2">活動延期通知</a></li>
+                    <li><a href="#announcement-3">報名截止提醒</a></li>
+                </ul>
+            </div>
+            <div class="announcement-item" id="announcement-1">
+                <h3>入選人員名單</h3>
+                <p>敬請期待入選公告，將於報名截止後公布。</p>
+                <p class="text-small">最後更新：2025年12月18日</p>
+            </div>
+            <div class="announcement-item" id="announcement-2">
+                <h3>活動延期通知</h3>
+                <p>因故活動延期至115年2月4日-2月5日，敬請留意。</p>
+                <p class="text-small">最後更新：2025年12月18日</p>
+            </div>
+            <div class="announcement-item" id="announcement-3">
+                <h3>報名截止提醒</h3>
+                <p>報名截止日期為2025年12月31日，請儘速報名。</p>
+                <p class="text-small">最後更新：2025年12月18日</p>
+            </div>
         </div>
     </section>
 
@@ -1428,8 +1530,10 @@
                 <ul>
                     <li><a href="#about">關於我們</a></li>
                     <li><a href="#courses">課程介紹</a></li>
+                    <li><a href="#video">活動影片</a></li>
                     <li><a href="#schedule">活動資訊</a></li>
                     <li><a href="#registration">立即報名</a></li>
+                    <li><a href="#announcement">公佈欄</a></li>
                 </ul>
             </div>
 
@@ -1477,7 +1581,7 @@
         if (contactFormEl) {
             contactFormEl.addEventListener('submit', function(e) {
                 e.preventDefault();
-                alert('�P�±z���T���I�ڭ̷|�b24�p�ɤ��^�бz�C');
+                alert('感謝您的聯絡！我們會在24小時內回覆您。');
                 this.reset();
             });
         }
