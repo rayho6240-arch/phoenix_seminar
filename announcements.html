@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鳳凰科技研習營 | 公佈欄</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft JhengHei', 'Segoe UI', sans-serif;
+            background: #f4f6fb;
+            color: #1f2937;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 48px 16px 60px;
+            text-align: center;
+        }
+
+        .hero .eyebrow {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.16);
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            margin: 16px 0 12px;
+            font-size: 34px;
+            letter-spacing: 0.6px;
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+        }
+
+        .hero-actions {
+            margin-top: 22px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            background: white;
+            color: #4c51bf;
+            border-radius: 10px;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            background: #f8fafc;
+            box-shadow: 0 14px 38px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: -30px auto 40px;
+            padding: 0 16px;
+        }
+
+        .announcement-board {
+            display: grid;
+            gap: 18px;
+        }
+
+        .announcement-card {
+            background: white;
+            border-radius: 14px;
+            padding: 22px 24px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e5e7eb;
+        }
+
+        .announcement-card h2 {
+            font-size: 22px;
+            margin: 8px 0;
+            color: #1f2937;
+        }
+
+        .meta {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: #eef2ff;
+            color: #4338ca;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .announcement-card p {
+            color: #374151;
+            margin-top: 6px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px 12px 30px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 38px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="eyebrow">最新公告</div>
+        <h1>鳳凰科技研習營公佈欄</h1>
+        <p>所有公告內容已集中於此頁面，方便查詢與分享。若需返回主站，請使用下方按鈕。</p>
+        <div class="hero-actions">
+            <a href="phoenix-tech-camp.html#announcement" class="btn">回到主網頁</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="announcement-board">
+            <article class="announcement-card" id="announcement-1">
+                <div class="tag">正式通知</div>
+                <h2>入選人員名單</h2>
+                <p class="meta">最後更新：2025年12月18日</p>
+                <p>敬請期待入選公告，將於報名截止後公布，請持續關注本頁面或留意信箱通知。</p>
+            </article>
+
+            <article class="announcement-card" id="announcement-2">
+                <div class="tag">時程調整</div>
+                <h2>活動延期通知</h2>
+                <p class="meta">最後更新：2025年12月18日</p>
+                <p>因故活動延期至 115 年 2 月 4 日 - 2 月 5 日，敬請留意行程調整並安排交通住宿。</p>
+            </article>
+
+            <article class="announcement-card" id="announcement-3">
+                <div class="tag">提醒</div>
+                <h2>報名截止提醒</h2>
+                <p class="meta">最後更新：2025年12月18日</p>
+                <p>報名截止日期為 2025 年 12 月 31 日，請儘速報名以免向隅，並確認填寫的聯絡方式無誤。</p>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>鳳凰科技研習營 公佈欄 | 聯絡方式：z11108176@ncku.edu.tw</p>
+    </footer>
+</body>
+</html>

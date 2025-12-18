@@ -757,67 +757,125 @@
 
         /* 公佈欄樣式 */
         .announcement-content {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        .announcement-list {
-            background: #f7fafc;
-            padding: 20px;
-            border-radius: 16px;
-            border-left: 4px solid #667eea;
-            margin-bottom: 20px;
+        .announcement-cta {
+            background: linear-gradient(135deg, #eef2ff 0%, #f7f7ff 100%);
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            text-align: center;
         }
 
-        .announcement-list h3 {
-            color: #2d3748;
-            margin-bottom: 15px;
-        }
-
-        .announcement-list ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .announcement-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .announcement-list li:last-child {
-            border-bottom: none;
-        }
-
-        .announcement-list a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .announcement-list a:hover {
-            color: #764ba2;
-            text-decoration: underline;
-        }
-
-        .announcement-item {
-            background: #f7fafc;
-            padding: 30px;
-            border-radius: 16px;
-            border-left: 4px solid #667eea;
-            margin-bottom: 20px;
-        }
-
-        .announcement-item h3 {
-            color: #2d3748;
-            margin-bottom: 15px;
-        }
-
-        .announcement-item p {
+        .announcement-lead {
             color: #4a5568;
-            line-height: 1.6;
-            margin-bottom: 10px;
+            margin-bottom: 16px;
+        }
+
+        .announcement-link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+            margin: 18px 0 24px;
+        }
+
+        .announcement-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 14px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            color: #2d3748;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .announcement-link span {
+            color: #667eea;
+            font-size: 14px;
+        }
+
+        .announcement-link:hover {
+            border-color: #667eea;
+            box-shadow: 0 10px 26px rgba(102, 126, 234, 0.18);
+            transform: translateY(-1px);
+        }
+
+        .announcement-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .announcement-row {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 14px;
+            align-items: center;
+            padding: 12px 14px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.2s ease;
+            color: #1f2937;
+        }
+
+        .announcement-row:hover {
+            border-color: #667eea;
+            box-shadow: 0 12px 32px rgba(102, 126, 234, 0.18);
+            transform: translateY(-1px);
+        }
+
+        .announcement-date {
+            min-width: 110px;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            padding: 10px 12px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .announcement-date .date-md {
+            font-size: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .announcement-date .date-year {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .announcement-body {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .announcement-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .announcement-meta {
+            font-size: 14px;
+            color: #4b5563;
+        }
+
+        .announcement-arrow {
+            color: #667eea;
+            font-weight: 700;
+            font-size: 18px;
         }
 
         /* 報名頁面 */
@@ -1380,7 +1438,6 @@
             <iframe width="560" height="315" src="https://www.youtube.com/embed/hucy34TVka4?si=d6d8MPSCXV9wyZFQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
     </section>
-
     <!-- 報名專區 -->
     <section id="registration">
         <div>
@@ -1401,28 +1458,42 @@
     <section id="announcement">
         <h2 class="section-title">公佈欄</h2>
         <div class="announcement-content">
-            <div class="announcement-list">
-                <h3>最新公告</h3>
-                <ul>
-                    <li><a href="#announcement-1">入選人員名單公告</a></li>
-                    <li><a href="#announcement-2">活動延期通知</a></li>
-                    <li><a href="#announcement-3">報名截止提醒</a></li>
-                </ul>
-            </div>
-            <div class="announcement-item" id="announcement-1">
-                <h3>入選人員名單</h3>
-                <p>敬請期待入選公告，將於報名截止後公布。</p>
-                <p class="text-small">最後更新：2025年12月18日</p>
-            </div>
-            <div class="announcement-item" id="announcement-2">
-                <h3>活動延期通知</h3>
-                <p>因故活動延期至115年2月4日-2月5日，敬請留意。</p>
-                <p class="text-small">最後更新：2025年12月18日</p>
-            </div>
-            <div class="announcement-item" id="announcement-3">
-                <h3>報名截止提醒</h3>
-                <p>報名截止日期為2025年12月31日，請儘速報名。</p>
-                <p class="text-small">最後更新：2025年12月18日</p>
+            <div class="announcement-cta">
+                <div class="announcement-stack">
+                    <a class="announcement-row" href="announcement-1.html" target="_blank" rel="noopener noreferrer">
+                        <div class="announcement-date">
+                            <div class="date-md">12/18</div>
+                            <div class="date-year">2025</div>
+                        </div>
+                        <div class="announcement-body">
+                            <div class="announcement-title">入選人員名單公告</div>
+                            <div class="announcement-meta">更新時間：2025-12-18 · 類型：正式通知</div>
+                        </div>
+                        <div class="announcement-arrow">→</div>
+                    </a>
+                    <a class="announcement-row" href="announcement-2.html" target="_blank" rel="noopener noreferrer">
+                        <div class="announcement-date">
+                            <div class="date-md">12/18</div>
+                            <div class="date-year">2025</div>
+                        </div>
+                        <div class="announcement-body">
+                            <div class="announcement-title">活動延期通知</div>
+                            <div class="announcement-meta">更新時間：2025-12-18 · 類型：時程調整</div>
+                        </div>
+                        <div class="announcement-arrow">→</div>
+                    </a>
+                    <a class="announcement-row" href="announcement-3.html" target="_blank" rel="noopener noreferrer">
+                        <div class="announcement-date">
+                            <div class="date-md">12/18</div>
+                            <div class="date-year">2025</div>
+                        </div>
+                        <div class="announcement-body">
+                            <div class="announcement-title">報名截止提醒</div>
+                            <div class="announcement-meta">更新時間：2025-12-18 · 類型：提醒</div>
+                        </div>
+                        <div class="announcement-arrow">→</div>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
